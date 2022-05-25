@@ -23,7 +23,7 @@ public class PhoneDao {
 	
 	//DB 연결 메소드
 	private void getConnection() {
-	
+		
 	
 		try {
 		    // 1. JDBC 드라이버 (Oracle) 로딩
@@ -57,7 +57,7 @@ public class PhoneDao {
 		 			pstmt = conn.prepareStatement(query);
 		 	
 		 			//실행
-		 			rs = pstmt.executequrry();
+		 			rs = pstmt.executeQuery();
 		 			
 		 	//결과처리
 			while(rs.next()) {
@@ -85,43 +85,43 @@ public class PhoneDao {
 	}
 	
 
-public int phoneInsert(String name, String hp, String company) {
+	public int phoneInsert(PersonVo PersonVo) {
 	
-	int count = -1;
+		int count = -1;
 	
 	
-	try {
-		//DB 연결
-		getConnection();
-		
-	    // 3. SQL문 준비 / 바인딩 / 실행
-		//SQL문 준비 
-		String query = "";
-		query += " insert into person ";
-		query += " values(seq_person_id.nextval, ?, ?) ";
-		System.out.println(query);
-		
-		//바인딩 
-		pstmt = conn.prepareStatement(query);
-		pstmt.setString(1, personVo.getName());
-		pstmt.setString(2, personVo.getHp());
-		pstmt.setString(3, personVo.getCompany());
-		
-		//실행
-		count = pstmt.executeUpdate();
-		
-	    // 4.결과처리
-		System.out.println(count + "건이 등록 되었습니다.");
-		
-		
-	} catch (ClassNotFoundException e) {
-	    System.out.println("error: 드라이버 로딩 실패 - " + e);
-	} catch (SQLException e) {
-	    System.out.println("error:" + e);
-	} finally {
-		
-		return count;
-	}
+		try {
+			//DB 연결
+			getConnection();
+			
+		    // 3. SQL문 준비 / 바인딩 / 실행
+			//SQL문 준비 
+			String query = "";
+			query += " insert into person ";
+			query += " values(seq_person_id.nextval, ?, ?) ";
+			System.out.println(query);
+			
+			//바인딩 
+			pstmt = conn.prepareStatement(query);
+			pstmt.setString(1, PersonVo.getName());
+			pstmt.setString(2, PersonVo.getHp());
+			pstmt.setString(3, PersonVo.getCompany());
+			
+			//실행
+			count = pstmt.executeUpdate();
+			
+		    // 4.결과처리
+			System.out.println(count + "건이 등록 되었습니다.");
+			
+			
+		} catch (ClassNotFoundException e) {
+		    System.out.println("error: 드라이버 로딩 실패 - " + e);
+		} catch (SQLException e) {
+		    System.out.println("error:" + e);
+		} finally {
+			
+			return count;
+		}
 	
 	//--삭제 메소드
 	public int phoneDelete(int person_Id) {
@@ -182,10 +182,10 @@ public int phoneInsert(String name, String hp, String company) {
 			
 			//바인딩
 			pstmt = conn.prepareStatement(query);
-			pstmt.setString(1, personVo.getName());
-			pstmt.setString(2, personVo.getHp());
-			pstmt.setString(3, personVo.getCompany());
-			pstmt.setInt(4, personVo.getPersonId());
+			pstmt.setString(1, PersonVo.getName());
+			pstmt.setString(2, PersonVo.getHp());
+			pstmt.setString(3, PersonVo.getCompany());
+			pstmt.setInt(4, PersonVo.getpersonId());
 			
 			//실행
 			count = pstmt.executeUpdate();
@@ -204,6 +204,12 @@ public int phoneInsert(String name, String hp, String company) {
 		}
 		return count;
 	}
+	
+		
+		
+	
 	}
 	}
+	
+	
 		

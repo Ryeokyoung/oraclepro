@@ -1,21 +1,21 @@
 package com.javaex.phone;
 
-public class PhoneVo {
+public class PersonVo {
 
 	
 	// 필드
-	String name;
-	String hp;
-	String company;
+	static String name;
+	static String hp;
+	static String company;
 
 	
 	
 	
 	
 	//생성자 
-	public PhoneVo() {
+	public PersonVo() {
 	}
-	public PhoneVo(String name, String hp, String company) {
+	public PersonVo(String name, String hp, String company) {
 		
 		this.name = name;
 		this.hp = hp;
@@ -27,19 +27,19 @@ public class PhoneVo {
 	
 	
 	//gs
-	public String getName() {
+	public static String getName() {
 		return name;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getHp() {
+	public static String getHp() {
 		return hp;
 	}
 	public void setHp(String hp) {
 		this.hp = hp;
 	}
-	public String getCompany() {
+	public static String getCompany() {
 		return company;
 	}
 	public void setCompany(String company) {
@@ -58,6 +58,10 @@ public class PhoneVo {
 	@Override
 	public String toString() {
 		return "PhoneVo [name=" + name + ", hp=" + hp + ", company=" + company + "]";
+	}
+	public static int getpersonId() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 	
 
