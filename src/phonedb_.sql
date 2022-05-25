@@ -11,13 +11,13 @@
     2. 스크립트 작성 
        ㄱ. 테이블 생성 및 삭제 */ 
         create table person (
-        person_id     number(5),
-        name   varchar2(30) not null,
-        hp   varchar2(20),
-        company varchar2(20),
-        primary key (person_id)
-        ); 
-        
+						        person_id     number(5),
+						        name   varchar2(30) not null,
+						        hp   varchar2(20),
+						        company varchar2(20),
+						        primary key (person_id)
+						        ); 
+						        
         select * from person;--테이블 생성확인 
         
         drop table person;
